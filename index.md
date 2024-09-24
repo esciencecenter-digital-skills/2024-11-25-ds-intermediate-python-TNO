@@ -90,25 +90,6 @@ Read correct lesson meta from esciencecenter-digital-skills/workshop-metadata
 Check DC curriculum
 {% endcomment %}
 
-{% comment %}
-EVENTBRITE
-
-This block includes the Eventbrite registration widget if
-'eventbrite' has been set in the header.  You can delete it if you
-are not using Eventbrite, or leave it in, since it will not be
-displayed if the 'eventbrite' field in the header is not set.
-{% endcomment %}
-{% if eventbrite %}
-<strong>Some adblockers block the registration window. If you do not see the
-  registration box below, please check your adblocker settings.</strong>
-<iframe
-  src="https://www.eventbrite.com/tickets-external?eid={{eventbrite}}&ref=etckt"
-  frameborder="0"
-  width="100%"
-  height="400px"
-  scrolling="auto">
-</iframe>
-{% endif %}
 
 
 <h2 id="general">General Information</h2>
@@ -136,18 +117,45 @@ AUDIENCE
 Explain who your audience is.  (In particular, tell readers if the
 workshop is only open to people from a particular institution.
 {% endcomment %}
-{% if info.carpentry == "swc" %}
-{% include swc/who.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/who.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/who.html %}
-{% elsif info.carpentry == "ds" %}
+
 <div style="display: flex"><div>
      <strong>Who:&nbsp;</strong>
      </div>
-     <div markdown=1>{% remote_include {{lesson_meta}}/who.md %}</div></div>
-{% endif %}
+     <div markdown=1>
+**This course is for you if:**
+* You have been writing software for a while, which may be used by people other than yourself, but it is currently undocumented or unstructured 
+* You want to learn:
+    * more intermediate software engineering techniques and tools
+    * how to collaborate with others to develop software
+    * how to prepare software for others to use
+* You are currently comfortable with:
+    * basic Python programming (though this may not be the main language you use) and applying it to your work on a regular basis
+    * basic version control using Git
+    * command line interface (shell)
+
+**This course is not for you if:**
+* You have not yet started writing software (in which case have a look at the Software Carpentry course or some other Python course for novices first)
+* You have learned the basics of writing software but have not applied that knowledge yet (or are unsure how to apply it) to your work. In this case, we suggest you revisit the course after you have been programming for at least 6 months
+* You are already reasonably familiar with the learning objectives of the course and those of individual episodes
+* The software you write is fully documented and well architected
+
+**Prerequisites:**
+
+To attend this course you should meet the following criteria. You can also test your prerequisite knowledge by taking [this short quiz](https://carpentries-incubator.github.io/python-intermediate-development/quiz/index.html).
+
+* Git
+   * You are familiar with the concept of version control
+   * You have experience configuring Git for the first time and creating a local repository
+   * You have experience using Git to create and clone a repository and add/commit changes to it and to push to/pull from a remote repository
+   * Ideally, you have experience comparing various versions of tracked files or ignoring specific files
+* Python
+   * You have a basic knowledge of programming in Python (using variables, lists, conditional statements, functions and importing external libraries)
+   * You have previously written Python scripts or iPython/Jupyter notebooks to accomplish tasks in your domain of work
+* Shell
+   * You have experience using a command line interface, such as Bash, to navigate a UNIX-style file system and run commands with arguments
+   * Ideally, you have experience redirecting inputs and outputs from a command
+
+</div></div>
 
 {% comment %}
 LOCATION
@@ -382,7 +390,31 @@ of code below the Schedule `<h2>` header below with
 
 {% if info.carpentry == "ds" %}
 <h2 id="syllabus">Syllabus</h2>
-{% remote_include {{lesson_meta}}/syllabus.md %}
+Setting up Environment For Collaborative Code Development
+* Introduction to Our Software Project
+* Virtual Environments For Software Development
+* Integrated Software Development Environments
+* Collaborative Software Development Using Git and GitLab
+* Python Code Style Conventions
+* Verifying Code Style Using Linters
+
+Ensuring Correctness of Software at Scale
+* Automatically Testing Software
+* Scaling Up Unit Testing
+* Continuous Integration for Automated Testing
+* Diagnosing Issues and Improving Robustness
+
+Software Development as a Process
+* Software Requirements
+* Software Architecture and Design
+* Code Decoupling & Abstractions
+* Code Refactoring
+* Software Architecture Revisited
+
+Collaborative Software Development for Reuse
+* Developing Software in a Team: Code Review
+* Preparing Software for Reuse and Release
+* Packaging Code for Release and Distribution
 {% endif %}
 
 <h2 id="schedule">Schedule</h2>
@@ -394,7 +426,49 @@ of code below the Schedule `<h2>` header below with
 {% elsif info.carpentry == "lc" %}
 {% include lc/schedule.html %}
 {% elsif info.carpentry == "ds" %}
-{% remote_include {{lesson_meta}}/schedule.md %}
+<div class="row">
+  <div class="col-md-6">
+    <h3>Day 1</h3>
+    <table class="table table-striped">
+      <tr> <th>time</th> <th>what</th></tr>
+      <tr> <td>09:30</td>  <td>Welcome and icebreaker</td> </tr>
+      <tr> <td>09:45</td>  <td>Setting up Environment For Collaborative Code Development</td></tr>
+      <tr> <td>10:30</td>  <td>Break</td></tr>
+      <tr> <td>10:40</td>  <td>Setting up Environment For Collaborative Code Development </td> </tr>
+      <tr> <td>11:30</td>  <td>Break</td></tr>
+      <tr> <td>11:40</td>  <td>Setting up Environment For Collaborative Code Development</td> </tr>
+      <tr> <td>12:30</td>  <td>Lunch Break</td></tr>
+      <tr> <td>13:30</td>  <td>Ensuring Correctness of Software at Scale</td> </tr>
+      <tr> <td>14:30</td>  <td>Break</td></tr>
+      <tr> <td>14:40</td>  <td>Ensuring Correctness of Software at Scale</td> </tr>
+      <tr> <td>15:30</td>  <td>Break</td></tr>
+      <tr> <td>15:40</td>  <td>Ensuring Correctness of Software at Scale</td> </tr>
+      <tr> <td>16:15</td>  <td>Wrap-up</td> </tr>
+      <tr> <td>16:30</td>  <td>END</td> </tr>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <h3>Day 2</h3>
+    <table class="table table-striped">
+      <tr> <th>time</th> <th>what</th></tr>
+      <tr> <td>09:30</td>  <td>Welcome and recap</td> </tr>
+      <tr> <td>09:45</td>  <td>Software Development as a Process</td></tr>
+      <tr> <td>10:30</td>  <td>Break</td></tr>
+      <tr> <td>10:40</td>  <td>Software Development as a Process</td> </tr>
+      <tr> <td>11:30</td>  <td>Break</td></tr>
+      <tr> <td>11:40</td>  <td>Software Development as a Process</td></tr>
+      <tr> <td>12:30</td>  <td>Lunch Break</td></tr>
+      <tr> <td>13:30</td>  <td>Collaborative Software Development for Reuse</td></tr>
+      <tr> <td>14:30</td>  <td>Break</td></tr>
+      <tr> <td>14:40</td>  <td>Collaborative Software Development for Reuse</td> </tr>
+      <tr> <td>15:30</td>  <td>Break</td></tr>
+      <tr> <td>15:40</td>  <td>Collaborative Software Development for Reuse</td> </tr>
+      <tr> <td>16:15</td>  <td>Post-workshop Survey</td> </tr>
+      <tr> <td>16:30</td>  <td>Drinks</td> </tr>
+    </table>
+  </div>
+</div>
+
 {% elsif info.carpentry == "pilot" %}
 The lesson taught in this workshop is being piloted and a precise schedule is yet to be established. The workshop will include regular breaks. If you would like to know the timing of these breaks in advance, please [contact the workshop organisers](#contact). For a list of lesson sections and estimated timings, [visit the lesson homepage]({{ site.lesson_site }}).
 {% comment %}

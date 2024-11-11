@@ -464,7 +464,7 @@ Collaborative Software Development for Reuse
       <tr> <td>15:30</td>  <td>Break</td></tr>
       <tr> <td>15:40</td>  <td>Collaborative Software Development for Reuse</td> </tr>
       <tr> <td>16:15</td>  <td>Post-workshop Survey</td> </tr>
-      <tr> <td>16:30</td>  <td>Drinks</td> </tr>
+      <tr> <td>16:30</td>  <td>END</td> </tr>
     </table>
   </div>
 </div>

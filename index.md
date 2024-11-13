@@ -522,30 +522,7 @@ during the workshop.
 {% endcomment %}
 
 <h3 id="software-setup">Software setup</h3>
-
-{% if info.carpentry == "swc" %}
-{% include swc/setup.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/setup.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/setup.html %}
-{% elsif info.carpentry == "ds" %}
-{% capture content %}
-{% remote_include {{lesson_meta}}/setup.md %}
-{% endcapture %}
-{% if content contains "/setup.md" %}
-  {% capture setup %}
-  {% remote_include https://raw.githubusercontent.com/{{content | strip}} %}
-  {% endcapture %}
-  {{ setup | split: "---" | last}}
-{% else %}
-  {{ content }}
-{% endif %}
-{% elsif info.carpentry == "pilot" %}
-Please check the "Setup" page of
-[the lesson site]({{ site.lesson_site }}) for instructions to follow
-to obtain the software and data you will need to follow the lesson.
-{% endif %}
+It is important that you setup everything on your laptop before the start of the course. This includes setting up a Command Line Tool, Git, a Python environment, and Integrated Development Environment.. Please follow [these setup instructions](https://esciencecenter-digital-skills.github.io/python-intermediate-development-gitlab/setup.html). Send us an email if you encounter any problems.
 
 {% comment %}
 For online workshops, the section below provides:
